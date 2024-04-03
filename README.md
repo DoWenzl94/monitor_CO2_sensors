@@ -36,3 +36,7 @@ For feedback, questions, or issues with this blueprint, feel free to create an i
 
 ---
 *Note: Please be aware that this blueprint was created by a third party and is not directly supported by Home Assistant. Use it at your own risk. We recommend thoroughly testing the functionality before use.*
+
+
+
+<a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FDoWenzl94%2Fmonitor_CO2_sensors%2Fblob%2Fmain%2Fmonitor_CO2_sensors.yaml" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled." /></a>
