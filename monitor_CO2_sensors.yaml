@@ -1,11 +1,11 @@
 blueprint:
-  name: ..berwachung von CO2-Sensoren
-  description: Benachrichtigt, wenn CO2-Werte einen festgelegten Schwellenwert ..berschreiten.
+  name: Überwachung von CO2-Sensoren
+  description: Benachrichtigt, wenn CO2-Werte einen festgelegten Schwellenwert überschreiten.
   domain: automation
   input:
     co2_sensors:
-      name: CO2-Sensoren ..berwachen
-      description: Die CO2-Sensoren, die auf ..berschreitung des Schwellenwerts ..berwacht werden sollen.
+      name: CO2-Sensoren überwachen
+      description: Die CO2-Sensoren, die auf überschreitung des Schwellenwerts überwacht werden sollen.
       selector:
         entity:
           domain: sensor
@@ -13,7 +13,7 @@ blueprint:
           multiple: true
     threshold:
       name: Schwellenwert
-      description: Der CO2-Wert, der ..berschritten werden soll, um benachrichtigt zu werden.
+      description: Der CO2-Wert, der überschritten werden soll, um benachrichtigt zu werden.
       default: 1000
       selector:
         number:
@@ -22,7 +22,7 @@ blueprint:
           step: 1
     actions:
       name: Actions
-      description: Der CO2-Wert von {{entity_name}} hat den Schwellenwert von {{defined_threshold}} ppm ..berschritten.
+      description: Der CO2-Wert von {{entity_name}} hat den Schwellenwert von {{defined_threshold}} ppm überschritten.
       selector:
         action: {}
 
