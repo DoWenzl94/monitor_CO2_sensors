@@ -27,20 +27,20 @@ trigger:
   above: !input threshold
 
 action:
-- variables:
+  - variables:
     entity_name: "{{ trigger.to_state.attributes.friendly_name }}"
-- service: persistent_notification.create
-  data:
-    message: "CO2 level of {{ entity_name }} has exceeded the threshold of {{ threshold }} ppm."
-    title: "CO2 Warning"
-    notification_id: "co2_warning_{{ trigger.to_state.entity_id }}"
-
-- alias: 'CO2 Level Normal'
-  trigger:
-    platform: numeric_state
-    entity_id: !input co2_sensors
-    below: !input threshold
-  action:
-  - service: persistent_notification.dismiss
-    data_template:
+  - service: persistent_notification.create
+    data:
+      message: "CO2 level of {{ entity_name }} has exceeded the threshold of {{ threshold }} ppm."
+      title: "CO2 Warning"
       notification_id: "co2_warning_{{ trigger.to_state.entity_id }}"
+
+  - alias: 'CO2 Level Normal'
+    trigger:
+      platform: numeric_state
+      entity_id: !input co2_sensors
+      below: !input threshold
+    action:
+    - service: persistent_notification.dismiss
+      data:  # Removed data_template, directly provide the entity_id
+        notification_id: "co2_warning_{{ trigger.to_state.entity_id }}"
