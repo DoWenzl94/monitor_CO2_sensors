@@ -30,9 +30,11 @@ trigger:
   above: !input threshold
 
 action:
+- variables:
+    entity_name: "{{ trigger.to_state.attributes.friendly_name }}"
 - service: persistent_notification.create
   data:
-    message: "CO2 level of {{ trigger.to_state.attributes.friendly_name }} has exceeded the threshold of {{ defined_threshold }} ppm."
+    message: "CO2 level of {{ entity_name }} has exceeded the threshold of {{ defined_threshold }} ppm."
     title: "CO2 Warning"
     notification_id: "co2_warning_{{ trigger.to_state.entity_id }}"
 
