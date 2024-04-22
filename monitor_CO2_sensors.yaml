@@ -41,6 +41,6 @@ action:
       entity_id: !input co2_sensors
       below: !input threshold
     action:
-    - service: persistent_notification.dismiss
-      data:  # Removed data_template, directly provide the entity_id
-        notification_id: "co2_warning_{{ trigger.to_state.entity_id }}"
+      - service: persistent_notification.dismiss
+        data:  # Directly provide the entity_id, no data_template
+          notification_id: "co2_warning_{{ trigger.to_state.entity_id }}"
