@@ -20,6 +20,12 @@ blueprint:
           min: -50
           max: 5000
           step: 1
+    custom_condition:
+      name: Eigene Bedingung (Optional)
+      description: Zusätzliche Bedingungen, die erfüllt sein müssen, damit die Aktion ausgeführt wird (z.B. nur wenn jemand zu Hause ist).
+      default: []
+      selector:
+        condition: {}
     actions:
       name: Actions
       description: The CO2 level of {{entity_name}} has exceeded the threshold of {{defined_threshold}} ppm.
@@ -33,6 +39,8 @@ trigger:
   platform: numeric_state
   entity_id: !input co2_sensors
   above: !input threshold
+
+condition: !input custom_condition
 
 action:
 - variables:
